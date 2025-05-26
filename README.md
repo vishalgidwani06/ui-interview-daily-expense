@@ -1,54 +1,28 @@
-# React + TypeScript + Vite
+# Daily Expense Tracker - Application Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+The Daily Expense Tracker is a web application designed to help users track and manage their daily expenses.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Application Architecture
 
-## Expanding the ESLint configuration
+The application is built using React with TypeScript and follows a component-based architecture. It uses Vite as the build tool and Tailwind CSS for styling.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Component Structure
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+The application consists of the following main components:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **App Component** (`App.tsx`): The root component that manages the overall state of the application and renders the main UI components.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **ExpenseForm Component** (`ExpenseForm.tsx`): Handles the input form for adding new expenses. It captures:
+   - Amount
+   - Category
+   - Date
+   - Note (optional)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+3. **ExpenseList Component** (`ExpenseList.tsx`): Displays all expenses in a tabular format with columns for date, category, amount, note, and actions. It also shows a "Recent Expense Card" highlighting the most recent expense.
+
+4. **ExpenseSummary Component** (`ExpenseSummary.tsx`): Provides analytical information about expenses, including:
+   - Total expenses
+   - Expenses by category
+   - Expenses by month
